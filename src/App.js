@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Comments from './Comments'
+import NewComment from './NewComment'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { database } from './firebase'
+
+class App extends Component {
+  state = {
+    comments: {},
+    isLoading: false
+  }
+
+  sendComment = comment => {
+    const id = database.ref().child('comments').push().key
+    const comments = {}
+    comments['comments/' + id] = {
+      comment
+    }
+    
+    database.ref().update(comments)
+  }
+
+  componentDidMount() {
+    this.setState({ isLoading: true })
+    this.comments = database.ref('comments')
+    this.comments.on('value', snapshot => {
+      this.setState({
+        comments: snapshot.val(),
+        isLoading: false
+      })
+    })
+  }
+
+  render() {
+    return (
+      <div className="">
+        <NewComment sendComment={this.sendComment} newComments={this.state.newComments} />
+        <Comments comments={this.state.comments} />
+        {
+          this.state.isLoading && <p>Carregando...</p>
+        }
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
