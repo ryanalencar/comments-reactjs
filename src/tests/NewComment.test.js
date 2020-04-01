@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import NewComment from './NewComment'
+import NewComment from '../components/NewComment'
 
 describe('<NewComment />', () => {
     it('should handle changes in textarea', () => {

@@ -1,0 +1,39 @@
+.notif {
+    width: 90%;
+    height: 100px;
+    margin: 40px auto;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.notif--error {
+    background: #d35757;
+}
+
+.notif__icon {
+    padding: 20px;
+    font-size: 56px;
+}
+
+.notif__content, .notif__actions {
+    height: 100%;
+    float: left;
+}
+
+.notif__content {
+    width: 85%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.notif__title {
+    margin-bottom: 0.2em;
+    font-size: 2em;
+}
