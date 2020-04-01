@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Alert from 'react-bootstrap/Alert'
 import Header from './Header'
 
 
@@ -55,10 +54,10 @@ class Login extends Component {
                     <div className="row my-4">
                         <div className="col-2"></div>
                         <div className="col-4">
-                            <button type="button" className="btnLogin draw" onClick={this.login}>Entrar</button>
+                            <button type="button" className="button" onClick={this.login}>Entrar</button>
                         </div>
                         <div className="col-4">
-                            <button type="button" className="btnLogin center" onClick={() => this.props.changeScreen('signUp')}>Criar conta</button>
+                            <button type="button" className="button" onClick={() => this.props.changeScreen('signUp')}>Criar conta</button>
                         </div>
                         <div className="col-2"></div>
                     </div>

@@ -6,7 +6,7 @@ const User = props => {
         <div>
             <nav class="navbar navbar-expand-lg navbar-light mb-4">
                 <div class="container">
-                    <a class="navbar-brand" href="#">CommmentApp</a>
+                    <a class="navbar-brand">CommmentApp</a>
                     Logado como: {props.email}
                     <button onClick={props.logout} className="exit-btn"><i className="material-icons">exit_to_app</i></button>
                 </div>

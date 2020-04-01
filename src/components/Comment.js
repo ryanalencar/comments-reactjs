@@ -15,7 +15,7 @@ const Comment = ({ c }) => {
     }
 
     return (
-        <div>
+        <div className="container">
             Enviado por: {c.email}
             <br/>
             Comment: {c.comment}
